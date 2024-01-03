@@ -1,0 +1,5 @@
+-I./physicsEngine/src
+-I./physicsEngine/vendor/GLFW/include
+-I./physicsEngine/vendor/spdlog/include
+-I./physicsEngine/vendor/glad/include
+-DGLFW_INCLUDE_NONE
