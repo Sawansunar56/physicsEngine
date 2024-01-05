@@ -1,0 +1,138 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Iinclude",
+      "-m64",
+      "-g",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/Glad/glad.o",
+      "src/glad.c"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/Glad",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/Glad/src/glad.c",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/Glad/bin-int/Debug-linux-x86_64/Glad/glad.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/ImGui/imgui.o",
+      "imgui.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/imgui.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/bin-int/Debug-linux-x86_64/ImGui/imgui.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/ImGui/imgui_demo.o",
+      "imgui_demo.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/imgui_demo.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/bin-int/Debug-linux-x86_64/ImGui/imgui_demo.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/ImGui/imgui_draw.o",
+      "imgui_draw.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/imgui_draw.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/bin-int/Debug-linux-x86_64/ImGui/imgui_draw.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/ImGui/imgui_tables.o",
+      "imgui_tables.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/imgui_tables.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/bin-int/Debug-linux-x86_64/ImGui/imgui_tables.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "bin-int/Debug-linux-x86_64/ImGui/imgui_widgets.o",
+      "imgui_widgets.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/imgui_widgets.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/physicsEngine/vendor/imgui/bin-int/Debug-linux-x86_64/ImGui/imgui_widgets.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-x",
+      "c++-header",
+      "-DDEBUG_MODE",
+      "-Isrc",
+      "-Ivendor/spdlog/include",
+      "-Ivendor/GLFW/include",
+      "-Ivendor/glad/include",
+      "-Ivendor/imgui",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "../bin-int/Debug-linux-x86_64/physicsEngine/precompPch.h.gch",
+      "src/precompPch.h"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/src/precompPch.h",
+    "output": "/mnt/d/projects/C++/physicsEngine/bin-int/Debug-linux-x86_64/physicsEngine/precompPch.h.gch"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-include",
+      "../bin-int/Debug-linux-x86_64/physicsEngine/precompPch.h",
+      "-DDEBUG_MODE",
+      "-Isrc",
+      "-Ivendor/spdlog/include",
+      "-Ivendor/GLFW/include",
+      "-Ivendor/glad/include",
+      "-Ivendor/imgui",
+      "-m64",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "../bin-int/Debug-linux-x86_64/physicsEngine/Application.o",
+      "src/Application.cpp"
+    ],
+    "directory": "/mnt/d/projects/C++/physicsEngine/physicsEngine",
+    "file": "/mnt/d/projects/C++/physicsEngine/physicsEngine/src/Application.cpp",
+    "output": "/mnt/d/projects/C++/physicsEngine/bin-int/Debug-linux-x86_64/physicsEngine/Application.o"
+  }
+]

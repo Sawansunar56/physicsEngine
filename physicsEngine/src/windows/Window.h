@@ -25,6 +25,12 @@ class Window {
         void init(const WindowProps& props);
         void onUpdate();    
 		inline void SetEventCallback(const EventCallbackFn& callback) { m_WindowData.EventCallback = callback; }
+
+        inline void* GetNativeWindow() const { return m_Window; }
+
+        inline unsigned int GetHeight() const { return m_WindowData.Height;}
+        inline unsigned int GetWidth() const { return m_WindowData.Width;}
+    
     private:
         GLFWwindow* m_Window;
 

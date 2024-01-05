@@ -2,4 +2,5 @@
 -I./physicsEngine/vendor/GLFW/include
 -I./physicsEngine/vendor/spdlog/include
 -I./physicsEngine/vendor/glad/include
+-I./physicsEngine/vendor/imgui
 -DGLFW_INCLUDE_NONE

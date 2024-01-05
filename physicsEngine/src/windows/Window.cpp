@@ -1,6 +1,7 @@
 #include "precompPch.h"
 #include "Window.h"
 #include "events/KeyEvent.h"
+#include "events/MouseEvent.h"
 #include "events/ApplicationEvent.h"
 #include "utils/log.h"
 
@@ -47,6 +48,32 @@ void Window::init(const WindowProps& props)
         data.EventCallback(event);
     });
 
+    glfwSetMouseButtonCallback(
+        m_Window, [](GLFWwindow* window, int button, int action, int mods) {
+        WindowsData& data = *(WindowsData*)glfwGetWindowUserPointer(window);
+
+        switch (action) {
+            case GLFW_PRESS: {
+                MouseButtonPressedEvent event(button);
+                data.EventCallback(event);
+                break;
+            }
+            case GLFW_RELEASE: {
+                MouseButtonReleasedEvent event(button);
+                data.EventCallback(event);
+                break;
+            }
+        }
+    });
+
+
+    glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
+        WindowsData& data = *(WindowsData*)glfwGetWindowUserPointer(window);
+
+        WindowResizeEvent event(height, width);
+        data.EventCallback(event);
+    });
+
     glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
         WindowsData& data = *(WindowsData*)glfwGetWindowUserPointer(window);
         if (action == GLFW_PRESS) {
@@ -59,7 +86,6 @@ void Window::init(const WindowProps& props)
 void Window::onUpdate()
 {
     /* Render here */
-    glClear(GL_COLOR_BUFFER_BIT);
 
     glfwPollEvents();
     /* Swap front and back buffers */

@@ -15,10 +15,12 @@ LibDirs = {}
 
 IncludeDirs["GLFW"] = "physicsEngine/vendor/GLFW/include"
 IncludeDirs["Glad"] = "physicsEngine/vendor/glad/include"
+IncludeDirs["ImGui"] = "physicsEngine/vendor/imgui"
 
 LibDirs["GLFW"] = "physicsEngine/vendor/GLFW/lib-vc2022"
 
 include "physicsEngine/vendor/Glad"
+include "physicsEngine/vendor/imgui"
 
 project "physicsEngine"
     location "physicsEngine"
@@ -42,6 +44,7 @@ project "physicsEngine"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDirs.GLFW}",
         "%{IncludeDirs.Glad}",
+        "%{IncludeDirs.ImGui}",
     }
     libdirs {
         "%{LibDirs.GLFW}",
@@ -49,6 +52,7 @@ project "physicsEngine"
     links {
         "glad",
         "glfw3",
+        "ImGui",
         "opengl32"
     }
 

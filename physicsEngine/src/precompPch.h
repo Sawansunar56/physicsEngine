@@ -6,3 +6,9 @@
 
 #include <string>
 #include <vector>
+
+#ifdef __clang__
+#include <cstdint>
+#else
+#include "Windows.h"
+#endif 
