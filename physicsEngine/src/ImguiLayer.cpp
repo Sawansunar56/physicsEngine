@@ -1,4 +1,5 @@
 #include "precompPch.h"
+#include "events/MouseEvent.h"
 #include "ImguiLayer.h"
 
 #include "imgui.h"
@@ -8,6 +9,8 @@
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+
+#include "utils/log.h"
 
 ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {}
 ImGuiLayer::~ImGuiLayer() {}
@@ -63,4 +66,13 @@ void ImGuiLayer::End() {
 void ImGuiLayer::onImGuiRender() {
     static bool show = true;
     ImGui::ShowDemoWindow(&show);
+}
+
+bool onlyGoImGui(MouseButtonPressedEvent &e) {
+    LOG_ERROR("From IMgui DEMO");
+    return true;
+}
+void ImGuiLayer::onEvent(Event &e) {
+    EventDispatcher dispatcher(e);
+    dispatcher.Dispatch<MouseButtonPressedEvent>(onlyGoImGui);
 }

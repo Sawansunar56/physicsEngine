@@ -1,5 +1,9 @@
 #include "precompPch.h"
 #include "Engine.h"
+#include "utils/log.h"
+
+#include "imgui.h"
+#include "events/MouseEvent.h"
 
 Engine::Engine() : Layer("Engine Layer") {
     m_VertexArray.reset(VertexArray::Create());
@@ -43,9 +47,10 @@ Engine::Engine() : Layer("Engine Layer") {
             layout(location = 0) out vec4 color;
 
 			in vec4 v_Color;
+            uniform vec4 u_Color;
 
             void main() {
-                color = v_Color;
+                color = u_Color;
             }
         )";
 
@@ -54,8 +59,26 @@ Engine::Engine() : Layer("Engine Layer") {
 
 void Engine::onUpdate(Timestep ts) {
     m_Shader->Bind();
+    m_Shader->UploadUniformFloat4("u_Color", m_Colors);
     m_VertexArray->Bind();
 
     glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT,
                    nullptr);
 }
+
+void Engine::onImGuiRender() {
+    ImGui::Begin("SeTTINGS");
+    ImGui::Text("What is the fucking hell?");
+    ImGui::ColorEdit4("change color", m_Colors);
+    ImGui::End();
+}
+
+bool onlyGoEngine(MouseButtonPressedEvent &e) {
+    LOG_ERROR("FUCKING ONLY ON ENGINE SECTION");
+    return true;
+}
+void Engine::onEvent(Event &e) {
+    EventDispatcher dispatcher(e);
+    dispatcher.Dispatch<MouseButtonPressedEvent>(onlyGoEngine);
+}
+

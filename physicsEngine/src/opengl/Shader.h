@@ -9,6 +9,8 @@ class Shader {
         void Unbind() const;
 
         static Shader* Create(const std::string &vertexSrc, const std::string &fragmentSrc);
+
+        void UploadUniformFloat4(const std::string& name, float* value);
     private:
         uint32_t m_RendererId;
 };

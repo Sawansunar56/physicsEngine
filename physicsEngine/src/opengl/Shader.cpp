@@ -116,3 +116,8 @@ void Shader::Unbind() const {
 Shader* Shader::Create(const std::string &vertexSrc, const std::string &fragmentSrc) {
     return new Shader(vertexSrc, fragmentSrc);
 }
+
+void Shader::UploadUniformFloat4(const std::string& name, float* value) {
+    GLint location = glGetUniformLocation(m_RendererId, name.c_str());
+    glUniform4f(location, value[0], value[1], value[2], value[3]);
+}

@@ -43,7 +43,7 @@ class EventDispatcher {
 
     template <typename T> bool Dispatch(EventFn<T> func) {
         if (m_Event.GetEventType() == T::GetStaticType()) {
-            m_Event.handled = func(*(T *)&m_Event);
+            m_Event.handled = func(*(T*)&m_Event);
             return true;
         }
         return false;

@@ -45,12 +45,13 @@ void Application::onEvent(Event &e) {
     dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
     dispatcher.Dispatch<KeyEvent>(BIND_EVENT_FN(keyPress));
     dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(onWindowResize));
-    dispatcher.Dispatch<MouseButtonReleasedEvent>(BIND_EVENT_FN(onMouseRelease));
+    dispatcher.Dispatch<MouseButtonReleasedEvent>(
+        BIND_EVENT_FN(onMouseRelease));
     dispatcher.Dispatch<MouseButtonPressedEvent>(BIND_EVENT_FN(onMouseClick));
-
-    for(auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
+    for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
         (*--it)->onEvent(e);
-        if(e.handled) break;
+        if (e.handled)
+            break;
     }
 }
 
@@ -60,9 +61,8 @@ Application::Application() {
     m_Window->SetEventCallback(BIND_EVENT_FN(onEvent));
 
     m_imguiLayer = new ImGuiLayer();
-    PushOverlay(m_imguiLayer);
-
     PushLayer(new Engine());
+    PushLayer(m_imguiLayer);
 }
 
 Application::~Application() {}
@@ -89,12 +89,6 @@ void Application::Run() {
     }
 }
 
-void Application::PushLayer(Layer *layer) {
-    m_LayerStack.PushLayer(layer);
-    layer->onAttach();
-}
+void Application::PushLayer(Layer *layer) { m_LayerStack.PushLayer(layer); }
 
-void Application::PushOverlay(Layer *layer) {
-    m_LayerStack.PushOverLay(layer);
-    layer->onAttach();
-}
+void Application::PushOverlay(Layer *layer) { m_LayerStack.PushOverLay(layer); }
